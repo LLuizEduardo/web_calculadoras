@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <div>
+            <label for="0valorTotal">Valor Total:</label>
+            <input type="number" id="valorTotal">
+        </div>
+        <div>
+            <label for="0qtdParcelas">Quantidade de Parcelas:</label>
+            <input type="number" id="qtdParcelas">
+        </div>
+        <div>
+            <label for="0retornoInvestimento">Retorno de Investimentos:</label>
+            <input type="number" id="retornoInvestimento">
+        </div>
+        <button onclick="Calcular()">Calcular</button>
+    </div>
+</body>
+<script>
+    function Calcular() {
+        let valorTotal = document.getElementById('valorTotal').value;
+        let parcelas = document.getElementById('qtdParcelas').value;
+        let retornoInvestimento = document.getElementById('retornoInvestimento').value;
+
+        if (parcelas != "" && valorTotal != "" && retornoInvestimento != "") {
+            var retornoTotal = (valorTotal * retornoInvestimento * (parcelas - 1)) / 2;
+            alert(retornoTotal)
+        }
+        else {
+            alert('Preencha todos os campos')
+        }
+    }
+</script>
+
+</html>
