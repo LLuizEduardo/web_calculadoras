@@ -20,3 +20,10 @@ function Calcular() {
         alert('Preencha todos os campos corretamente!')
     }
 }
+
+// function(){const de0a6 = {
+//     "perc": 0.225, "dias": 180} ;
+//     const de6a12 = 0.2;
+//     const de12a24 = 0.175;
+//     const de24acima = 0.15;
+//     }
