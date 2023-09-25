@@ -1,10 +1,13 @@
 function Calcular() {
-    //debugger
-    let valorTotal = document.getElementById('valorTotal').value;
-    let parcelas = document.getElementById('qtdParcelas').value;
-    let retornoInvestimento = document.getElementById('retornoInvestimento').value;
-    let desconto = document.getElementById('desconto').value;
 
+    let valorTotal = GetValueId('valorTotal');
+    let parcelas = GetValueId('qtdParcelas');
+    let retornoInvestimento = GetValueId('retornoInvestimento');
+    let desconto = GetValueId('desconto');
+
+    retornoInvestimento = retornoInvestimento/100;
+    desconto = desconto/100;
+ 
     if (parcelas != "" && valorTotal != "" && retornoInvestimento != "") {
 
         var retornoTotal = (valorTotal * retornoInvestimento * (parcelas - 1)) / 2;
@@ -21,9 +24,6 @@ function Calcular() {
     }
 }
 
-// function(){const de0a6 = {
-//     "perc": 0.225, "dias": 180} ;
-//     const de6a12 = 0.2;
-//     const de12a24 = 0.175;
-//     const de24acima = 0.15;
-//     }
+function GetValueId(id){
+    return document.getElementById(id).value;
+}
