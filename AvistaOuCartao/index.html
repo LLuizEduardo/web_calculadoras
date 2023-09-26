@@ -9,38 +9,37 @@
 </head>
 
 <body>
-    <div>
+    <main>
+        <form>
+            <div>
+                <label for="valorTotal">Valor Total:</label>
+                <input type="number" id="valorTotal">
+            </div>
+            <div>
+                <label for="qtdParcelas">Quantidade de Parcelas:</label>
+                <input type="number" id="qtdParcelas">
+            </div>
+            <div>
+                <label for="retornoInvestimento">Retorno de Investimentos(% a.m):</label>
+                <input type="number" id="retornoInvestimento">
+            </div>
+            <div>
+                <label for="desconto">Desconto à vista(%):</label>
+                <input type="number" id="desconto">
+            </div> <br>
+            <div>
+                <button type="submit" onclick="calcular()">Calcular</button>
+            </div>
+        </form> <br>
         <div>
-            <label for="valorTotal">Valor Total:</label>
-            <input type="number" id="valorTotal">
+            <div>
+                <label id="resultadoInvestimento"></label>
+            </div> <br>
+            <div>
+                <label id="resultadoDesconto"></label>
+            </div>
         </div>
-        <div>
-            <label for="qtdParcelas">Quantidade de Parcelas:</label>
-            <input type="number" id="qtdParcelas">
-        </div>
-        <div>
-            <label for="retornoInvestimento">Retorno de Investimentos(% a.m):</label>
-            <input type="number" id="retornoInvestimento">
-        </div>
-        <div>
-            <label for="desconto">Desconto à vista(%):</label>
-            <input type="number" id="desconto">
-        </div>
-        <br>
-        <div>
-            <button onclick="Calcular()">Calcular</button>
-        </div>
-    </div>
-    <br>
-    <div>
-        <div>
-            <label id="resultadoInvestimento"></label>
-        </div>
-        <br>
-        <div>
-            <label id="resultadoDesconto"></label>
-        </div>
-    </div>
+    </main>
 </body>
 <script src="script.js"></script>
 
