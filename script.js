@@ -6,7 +6,7 @@ function GetValueId(id) {
 
 
 fetch("/irpf.json").then((response) => {
-    response.json().then((aliquotas)=>{
+    response.json().then((aliquotas) => {
         console.log(aliquotas);
     })
 })
@@ -49,12 +49,25 @@ function calcularInvestimento() {
     let valorInvestimento = GetValueId('valorInvestimento');
     let qtdmeses = GetValueId('qtdmeses');
     let retornoInvestimento = GetValueId('retornoInvestimento');
+    let dias = qtdmeses * 30;
+
+    let aliquotaIR;
+    switch (dias) {
+        case dias < 180: aliquotaIR = (1-0.225)
+            break
+        case dias < 360: aliquotaIR = (1-0.2)
+            break
+        case dias < 720: aliquotaIR = (1-0.175)
+            break
+        default:
+            aliquotaIR = (1-0.15)
+    }
 
     retornoInvestimento = retornoInvestimento / 100;
 
     if (valorInvestimento != "" && qtdmeses != "" && retornoInvestimento != "") {
 
-        let retornoTotal = valorInvestimento * (1 + retornoInvestimento) ** qtdmeses;
+        let retornoTotal = valorInvestimento * (1 + retornoInvestimento * aliquotaIR) ** qtdmeses;
 
         let resultado = 'Retorno do investimento: ' + retornoTotal;
 
