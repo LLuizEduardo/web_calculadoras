@@ -49,20 +49,18 @@ function calcularInvestimento() {
     let valorInvestimento = GetValueId('valorInvestimento');
     let qtdmeses = GetValueId('qtdmeses');
     let retornoInvestimento = GetValueId('retornoInvestimento');
+
     let dias = qtdmeses * 30;
+    let aliquotaIR = 0.15;
 
-    let aliquotaIR;
-    switch (dias) {
-        case dias < 180: aliquotaIR = (1-0.225)
-            break
-        case dias < 360: aliquotaIR = (1-0.2)
-            break
-        case dias < 720: aliquotaIR = (1-0.175)
-            break
-        default:
-            aliquotaIR = (1-0.15)
-    }
+    if (dias < 180)
+        aliquotaIR = 0.225;
+    else if (dias < 360)
+        aliquotaIR = 0.2;
+    else if (dias < 720)
+        aliquotaIR = 0.175;
 
+    aliquotaIR = 1 - aliquotaIR
     retornoInvestimento = retornoInvestimento / 100;
 
     if (valorInvestimento != "" && qtdmeses != "" && retornoInvestimento != "") {
