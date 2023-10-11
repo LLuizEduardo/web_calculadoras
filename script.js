@@ -11,6 +11,11 @@ fetch("/irpf.json").then((response) => {
     })
 })
 
+const formularios = document.querySelector("#formulario");
+formularios.addEventListener("submit", (e)=> {
+    e.preventDefault();
+})
+
 
 ///////////////////////////////////////////////////////////////////////////////
 //A vista ou cartao
