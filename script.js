@@ -16,6 +16,12 @@ formularios.addEventListener("submit", (e)=> {
     e.preventDefault();
 })
 
+function limparFormulario(){
+    let inputs = document.querySelectorAll('input');
+    inputs.forEach(element => {
+        element.value = null;
+    });
+}
 
 ///////////////////////////////////////////////////////////////////////////////
 //A vista ou cartao
