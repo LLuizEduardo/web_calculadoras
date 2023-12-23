@@ -12,15 +12,19 @@ fetch("/irpf.json").then((response) => {
 })
 
 const formularios = document.querySelector("#formulario");
-formularios.addEventListener("submit", (e)=> {
+formularios.addEventListener("submit", (e) => {
     e.preventDefault();
 })
 
-function limparFormulario(){
+function limparFormulario() {
     let inputs = document.querySelectorAll('input');
     inputs.forEach(element => {
         element.value = null;
     });
+}
+
+function converterParaMoeda(valor) {
+    return valor.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -38,12 +42,11 @@ function calcular() {
 
         let retornoTotal = (valorTotal * retornoInvestimento * (parcelas - 1)) / 2;
 
-        // document.getElementById('resultadoInvestimento').innerHTML = 'Retorno do investimento: ' + retornoTotal;
-        let resultado = 'Retorno do investimento: ' + retornoTotal;
+        let resultado = 'Retorno do investimento: ' + converterParaMoeda(retornoTotal);
 
         if (desconto != "") {
             desconto = desconto * valorTotal;
-            resultado += '\nValor do desconto: ' + desconto;
+            resultado += '\nValor do desconto: ' + converterParaMoeda(desconto);
         }
 
         alert(resultado);
@@ -78,7 +81,7 @@ function calcularInvestimento() {
 
         let retornoTotal = valorInvestimento * (1 + retornoInvestimento * aliquotaIR) ** qtdmeses;
 
-        let resultado = 'Retorno do investimento: ' + retornoTotal;
+        let resultado = 'Retorno do investimento: ' + converterParaMoeda(retornoTotal);
 
         alert(resultado);
     }
